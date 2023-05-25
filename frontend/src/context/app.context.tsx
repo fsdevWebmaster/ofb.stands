@@ -1,9 +1,11 @@
 import { createContext } from "react";
-import { User } from "../interfaces";
+import { Program, User } from "../interfaces";
 
-interface Tal {
+export interface IContext {
   setLogged: (user:User) => void;
   logged:User | null;
+  addingProgram:Program | null;
+  setAddingProgram: (program:Program | null) => void;
 }
 
-export const AppContext = createContext({} as Tal);
+export const AppContext = createContext({} as IContext);

@@ -1,11 +1,11 @@
 import { Group, PieceCategory, Role } from "../interfaces";
 
 export const groups:Group[] = [
-  { id: 'vl1', name: 'Violines I' },
-  { id: 'vl2', name: 'Violines II' },
+  // { id: 'vl1', name: 'Violines I' },
+  // { id: 'vl2', name: 'Violines II' },
   { id: 'vla', name: 'Violas' },
   { id: 'vc', name: 'Violonchelos' },
-  { id: 'cba', name: 'Contrabajos' }
+  // { id: 'cba', name: 'Contrabajos' }
 ]
 
 export const roles:Role[] = [

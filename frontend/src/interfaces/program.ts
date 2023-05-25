@@ -1,4 +1,4 @@
-import { Piece } from ".";
+import { MusiciansNeeded, Piece } from ".";
 
 export interface Program {
   id?: string;
