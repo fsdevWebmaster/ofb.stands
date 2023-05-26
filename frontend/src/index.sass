@@ -1,8 +1,48 @@
+$grayBg: #F2F0F1
+$lightGray: #dedcdc
+$mainBlue: #293C4D
+
+@font-face 
+  font-family: 'mainFont'
+  src: url('/src/assets/fonts/NotoSerifKhmer-VariableFont_wdth,wght.ttf')
+
+@font-face 
+  font-family: 'openBold'
+  src: url('/src/assets/fonts/OpenSans-Bold.ttf')
+
+@font-face 
+  font-family: 'openRegular'
+  src: url('/src/assets/fonts/OpenSans-Regular.ttf')
+
+body
+  background-color: $grayBg
+  font-family: 'openRegular'
+  color: $mainBlue
+
+h1, h2, h3
+  letter-spacing: -1px
+  font-family: 'openBold'
+
 label
   width: 100%
+  font-size: 0.9em
+  font-family: 'openBold'
 
 select
   float: left
+
+.btn
+  font-family: 'openBold'
+  font-size: 0.7em
+  padding: 0.6em 2em
+  background-color: $mainBlue
+  margin-right: 5px
+  border: 0
+
+.form-control
+  background-color: $lightGray
+  border: none
+  padding: 0.6em 1em
 
 .clear
   width: 100%
@@ -23,3 +63,4 @@ select
     p
       margin: 0
       font-size: 0.9em
+

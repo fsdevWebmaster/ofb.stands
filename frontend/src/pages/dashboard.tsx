@@ -27,7 +27,7 @@ export const Dashboard = () => {
   return (
     <>
       <div className="page-container">
-        <div>Dashboard</div>
+        <h3>Dashboard</h3>
         <AppNav />
         <div className="app-list mt-4">
           { usersList.map(user => (

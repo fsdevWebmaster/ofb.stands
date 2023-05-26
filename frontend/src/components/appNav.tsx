@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom";
 
+import { AiFillPlusCircle } from 'react-icons/ai';
+
 import { AppContext } from "../context/app.context"
 
 export const AppNav = () => {
@@ -8,6 +10,7 @@ export const AppNav = () => {
 
   return (
     <nav className="main-nav">
+      <AiFillPlusCircle />
       { logged && logged.role === 'coordinator' &&
         <Link to={'/new-program'} className="btn btn-sm btn-secondary">
           Crear programa
