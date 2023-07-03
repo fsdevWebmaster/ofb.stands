@@ -11,9 +11,9 @@ export const useAuth = () => {
   const { setLogged } = useContext(AppContext);
   const [error, setError] = useState<string>();
 
-  const handleRegister = (e:React.FormEvent<HTMLFormElement> | any) => {
+  const handleRegister = async (e:React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
-    const { email, password, name, idDoc, group, role } = e.target;
+    const { email, password, name, idDoc, group, role, regCode } = e.target;
     const data:User = { 
       email: email.value, 
       password: password.value, 
@@ -21,13 +21,17 @@ export const useAuth = () => {
       idDoc: idDoc.value, 
       group: group.value, 
       role: role.value,
-      accumulated: 0
+      accumulated: 0,
+      registerCode: regCode.value
     };
     const valid = validateForms(data);
     if (!valid) {
       setError('Todos los datos son obligatorios.');
     }
-    userRegister(data);
+    const regData = await userRegister(data);
+    
+    console.log(regData);
+
   }
 
   const login = (e:React.FormEvent<HTMLFormElement> | any) => {

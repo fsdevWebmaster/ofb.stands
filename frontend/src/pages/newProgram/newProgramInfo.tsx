@@ -1,3 +1,4 @@
+import { AiOutlineArrowRight } from "react-icons/ai";
 import { useOfb } from "../../hooks/useOfb"
 
 interface Props {
@@ -8,7 +9,7 @@ export const NewProgramInfo = ({ continueCreation }:Props) => {
   const { handleNewProgram } = useOfb();
 
   return (
-    <div className="info-container">
+    <div className="container px-0">
       <label htmlFor="title">
         <span>Título programa</span>
         <input 
@@ -39,7 +40,8 @@ export const NewProgramInfo = ({ continueCreation }:Props) => {
 
       <button onClick={ step => continueCreation(1) }
         className="btn btn-sm btn-secondary mt-2">
-        Continuar
+        <span>Continuar</span>
+        <AiOutlineArrowRight className="btn-icon right" />
       </button>
     </div>
   )

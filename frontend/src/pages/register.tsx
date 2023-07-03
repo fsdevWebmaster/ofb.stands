@@ -69,6 +69,15 @@ export const Register = () => {
             ))}
           </select>
         </label>
+        <label htmlFor="regCode" className="mt-2">
+          <span>Código de registro</span>
+          <input 
+            name="regCode"
+            type="text" 
+            className="form-control"
+          />
+        </label>
+
         <div className="clear"></div>
         <button type='submit' className='btn btn-sm btn-secondary mt-3'>
           Enviar

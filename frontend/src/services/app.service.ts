@@ -7,11 +7,8 @@ export const userRegister = async (data:User) => {
     method: 'post',
     body: JSON.stringify(data)
   });
-
-
-  console.log(resp);
-  console.log(data);
-
+  const respData = await resp.json();
+  return respData;
 }
 
 export const saveProgram = (program:Program) => {

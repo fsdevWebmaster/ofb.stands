@@ -33,6 +33,7 @@ export const Dashboard = () => {
           { usersList.map(user => (
             <div key={ user.idDoc } className="list-row py-3">
               <p>{ user.name }</p>
+              <p>{ user.accumulated }</p>
             </div>
           ))}
         </div>

@@ -9,7 +9,7 @@ import { AppContext } from "../context/app.context";
 export const ProgramPage = () => {
   const { logged } = useContext(AppContext);
   const location = useLocation();
-  const [program, setProgram] = useState<Program>();
+  const [program, setProgram] = useState<Program |  null>();
 
   useEffect(() => {
     const programId = location.pathname.split('/')[2];

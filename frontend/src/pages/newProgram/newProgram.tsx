@@ -5,6 +5,7 @@ import { NewProgramInfo } from "./newProgramInfo";
 import { AppContext } from "../../context/app.context";
 import { Piece } from "../../interfaces";
 import { Pieces } from "./pieces";
+import './../../styles/programs.sass';
 
 export const NewProgram = () => {
   const { addingProgram } = useContext(AppContext);
@@ -18,28 +19,27 @@ export const NewProgram = () => {
 
   return (
     <div className="page-container">
-      <div>NewProgram</div>
-      <div className="program-preview">
-        { addingProgram && 
-          <>
-            <h1>{ addingProgram.title }</h1>
-            <h2>
-              { addingProgram.dateIni?.toString() } al { addingProgram.dateEnd?.toString() }
-            </h2>
-            <h3>Repertorio</h3>
-            { addingProgram.pieces?.map((piece:Piece, i:number) => (
-              <>
-                <div key={i} className="app-row">
-                  <p>{ piece.title } - { piece.author }</p>
-                </div>
-                { piece.groups.map((group, j) => (
-                  <p key={`${group}_${i}_${j}`}>{ group.group } - { group.quant }</p>
-                ))}
-              </>
-            ))}
-          </>
-        }
-      </div>
+      <h1 className="mb-4">Nuevo programa</h1>
+      { addingProgram && 
+        <div className="program-preview">
+          <h2>{ addingProgram.title }</h2>
+          <h3>
+            { addingProgram.dateIni?.toString() } al { addingProgram.dateEnd?.toString() }
+          </h3>
+          <h4>Repertorio</h4>
+          { addingProgram.pieces?.map((piece:Piece, i:number) => (
+            <>
+              <div key={i} className="app-row">
+                <p>{ piece.title } - { piece.author }</p>
+              </div>
+              { piece.groups.map((group, j) => (
+                <p key={`${group}_${i}_${j}`}>{ group.group } - { group.quant }</p>
+              ))}
+            </>
+          ))}
+        </div>
+      }
+
       { steps === 0 &&
         <NewProgramInfo continueCreation={ step => handleSteps(step) } />
       }

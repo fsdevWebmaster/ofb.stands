@@ -6,5 +6,6 @@ export interface User {
   idDoc: string;
   group: string;
   role: string;
-  accumulated?: number
+  accumulated?: number;
+  registerCode?: string;
 }

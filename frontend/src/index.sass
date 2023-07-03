@@ -1,6 +1,4 @@
-$grayBg: #F2F0F1
-$lightGray: #dedcdc
-$mainBlue: #293C4D
+@import './styles/variables.sass'
 
 @font-face 
   font-family: 'mainFont'
@@ -19,7 +17,7 @@ body
   font-family: 'openRegular'
   color: $mainBlue
 
-h1, h2, h3
+h1, h2, h3, h4
   letter-spacing: -1px
   font-family: 'openBold'
 
@@ -27,6 +25,10 @@ label
   width: 100%
   font-size: 0.9em
   font-family: 'openBold'
+  padding: 0.7em 0
+  span
+    display: block
+    margin-bottom: 5px
 
 select
   float: left
@@ -34,15 +36,16 @@ select
 .btn
   font-family: 'openBold'
   font-size: 0.7em
-  padding: 0.6em 2em
+  padding: 1em 2em
   background-color: $mainBlue
-  margin-right: 5px
+  margin-right: 10px
   border: 0
 
 .form-control
   background-color: $lightGray
   border: none
   padding: 0.6em 1em
+  font-family: 'openRegular'
 
 .clear
   width: 100%
@@ -58,9 +61,28 @@ select
 .app-list
   .list-row
     display: flex
+    justify-content: space-between
     border-bottom: 1px solid #ddd
     align-items: center
+    padding: 0 10px
     p
       margin: 0
       font-size: 0.9em
+
+.app-list
+  background-color: $bgWhite
+  padding: 1em 2em
+  padding-bottom: 2.5em
+  border: 1px solid #e5e5e5  
+  border-radius: 5px
+
+.btn-icon
+  color: $bgWhite
+  font-size: 1.3em
+  margin-top: -2px
+  margin-right: 5px
+  &.right
+    margin-right: 0
+    margin-left: 5px
+    margin-top: -1px
 

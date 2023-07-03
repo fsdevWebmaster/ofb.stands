@@ -6,9 +6,6 @@ export const Login = () => {
 
   return (
     <div className="container">
-      <div className="logo-container container py-5 my-5">
-        <img src="/src/assets/logo-ofb.png" alt="main logo" className="img-fluid" />
-      </div>
       <h1 className="text-center">
         Ubicación de atriles
       </h1>

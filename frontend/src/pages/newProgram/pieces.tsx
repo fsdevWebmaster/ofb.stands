@@ -1,3 +1,4 @@
+import { AiOutlineArrowRight } from "react-icons/ai";
 import { pieceCategories } from "../../config/app.config";
 import { useOfb } from "../../hooks/useOfb"
 
@@ -10,7 +11,7 @@ export const Pieces = ({ continueCreation }:Props) => {
   const { handleAddingPiece, addPiece } = useOfb();
 
   return (
-    <>
+    <div className="container">
       <h2 className="mt-5">Piezas</h2>
       <label htmlFor="title">
         <span>Título pieza</span>
@@ -47,13 +48,14 @@ export const Pieces = ({ continueCreation }:Props) => {
       <button 
         onClick={ addPiece }
         className="btn btn-sm btn-secondary">
-        Agregar pieza
+        <span>Agregar pieza</span>
       </button>
 
       <button onClick={ steps => continueCreation(2) }
         className="btn btn-sm btn-secondary">
-        Continuar
+        <span>Continuar</span>
+        <AiOutlineArrowRight className="btn-icon right" />
       </button>
-    </>
+    </div>
   )
 }

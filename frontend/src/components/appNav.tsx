@@ -10,11 +10,13 @@ export const AppNav = () => {
 
   return (
     <nav className="main-nav">
-      <AiFillPlusCircle />
       { logged && logged.role === 'coordinator' &&
-        <Link to={'/new-program'} className="btn btn-sm btn-secondary">
-          Crear programa
-        </Link>
+        <>
+          <Link to={'/new-program'} className="btn btn-sm btn-secondary">
+            <AiFillPlusCircle className="btn-icon" />
+            <span>Crear programa</span>
+          </Link>
+        </>
       }
       <Link to={'/programs'} className="btn btn-sm btn-secondary">
         Programas
