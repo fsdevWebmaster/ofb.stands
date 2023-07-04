@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { AppContext } from "../context/app.context";
 import { Login, User } from "../interfaces";
-import { userRegister } from "../services/app.service";
-import { users } from "../dummieData/dummieDb";
+import { userLogin, userRegister } from "../services/app.service";
+// import { users } from "../dummieData/dummieDb";
 
 export const useAuth = () => {
   const navigate = useNavigate();
@@ -43,14 +43,9 @@ export const useAuth = () => {
     }
     const valid = validateForms(data);
     if (valid) {
-      const user = users.find(item => item.email === data.email);
-      if (!user) {
-        setError('Ingreso no autorizado.');
-      }
-      else {
-        setLogged(user);
-        navigate('/dashboard')
-      }
+      
+      userLogin(data)
+    
     }
     else {
       setError('Todos los datos son obligatorios.');
