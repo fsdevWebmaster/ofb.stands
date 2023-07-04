@@ -1,16 +1,21 @@
 import user from "../database/models/user.js";
+import bcrypt from "bcrypt";
 
 export const register = (req, res, next) => {
-  const newUser = user(req.body);
-  newUser.save().then((result) => {
-
-    //TODO: encrypt password before save.
-
-    res.status(201).json({
-      userCreated: result
-    })
-  }).catch((err) => {
-    next(new Error('DataIncomplete'));
+  let userData = req.body;
+  bcrypt.hash(userData.password, 10, function(err, hash) {
+    if (err) {
+      return res.status(500).json({ err });
+    }
+    userData = {...userData, password: hash};
+    const newUser = user(userData);
+    newUser.save().then((userData) => {
+      return res.status(201).json({
+        userCreated: userData
+      })
+    }).catch((err) => {
+      next(new Error('DataIncomplete'));
+    });
   });
 }
 
