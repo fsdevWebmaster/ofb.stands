@@ -29,12 +29,15 @@ export const useAuth = () => {
       setError('Todos los datos son obligatorios.');
     }
     const regData = await userRegister(data);
-    
+    if (!regData.error) {
+      navigate('/login');
+    }
+
     console.log(regData);
 
   }
 
-  const login = (e:React.FormEvent<HTMLFormElement> | any) => {
+  const login = async (e:React.FormEvent<HTMLFormElement> | any) => {
     e.preventDefault();
     const { email, password } = e.target;
     const data = {
@@ -43,9 +46,9 @@ export const useAuth = () => {
     }
     const valid = validateForms(data);
     if (valid) {
-      
-      userLogin(data)
-    
+      const {user} = await userLogin(data);
+      setLogged(user);
+      navigate('/dashboard');
     }
     else {
       setError('Todos los datos son obligatorios.');

@@ -18,13 +18,25 @@ export const userLogin = async (data:{email: string, password: string}) => {
     body: JSON.stringify(data)    
   });
   const respData = await resp.json();
-
-  console.log(respData);
-
+  return respData;
 }
 
 export const saveProgram = (program:Program) => {
 
   console.log('saving program', program);
 
+}
+
+
+export const getUsersList = async (logged:User) => {
+  const resp = await fetch(`${backendUrl}/api/users`, {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'post',
+      body: JSON.stringify(logged)
+  });
+  
+  
+  const respData = await resp.json();
+  
+  console.log(respData);
 }

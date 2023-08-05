@@ -2,19 +2,28 @@ import { useContext, useState } from "react";
 
 import { programs, users } from "../dummieData/dummieDb"
 import { MusiciansNeeded, Piece, Program, Spot } from "../interfaces";
-import { saveProgram } from "../services/app.service";
+import { saveProgram, getUsersList } from "../services/app.service";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/app.context";
 // import { groups } from '../config/app.config';
 
 export const useOfb = () => {
   const navigate = useNavigate();
+  const { logged } = useContext(AppContext);
   const { addingProgram, setAddingProgram } = useContext(AppContext);
   const [addingPiece, setAddingPiece] = useState<Piece>({} as Piece);
   const [addingGroup, setAddingGroup] = useState<MusiciansNeeded>({} as MusiciansNeeded);
 
-  const getUsers = () => {
-    return users;
+  const getUsers = async () => {
+
+    
+    if (logged) {
+      const users = await getUsersList(logged);
+
+      // console.log('users', users);
+    }
+
+    // return users;
   }
 
   const getUserByName = (name:string) => {
