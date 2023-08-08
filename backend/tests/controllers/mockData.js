@@ -1,4 +1,3 @@
-import { register } from "../../controllers/app.controller"
 import { jest } from "@jest/globals";
 
 // null

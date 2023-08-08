@@ -5,7 +5,7 @@ import { mockRes, mockReq, loginReq, loginRes } from "./mockData";
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 const jwtRegex = /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/;
 
-describe('Register users', () => {
+describe('USER REGISTER TESTS', () => {
   const controller = {...appController};
   const registerMock = jest.spyOn(controller, "register");
   const response = registerMock(mockReq(), mockRes().json())
@@ -60,7 +60,5 @@ describe('Login users', () => {
     // token
     const token = response.json();
     expect(token).toMatch(jwtRegex)
-    // error
-    // expect(loginRes).not.toThrow();
   })  
 })
